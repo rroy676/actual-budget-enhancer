@@ -1,0 +1,57 @@
+:root {
+  --abe-surface-soft: color-mix(in srgb, Canvas 94%, #5c6ac4 6%);
+  --abe-text-strong: color-mix(in srgb, CanvasText 92%, #111 8%);
+  --abe-accent: #5c6ac4;
+}
+
+/* Accessible floating status badge */
+#abe-on-badge {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2147483647;
+  font: 600 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing: 0.2px;
+  color: white;
+  background: linear-gradient(135deg, #4a57b8, #6e7ae0);
+  border-radius: 999px;
+  padding: 7px 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Safe visual polish: no functional changes */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Non-destructive panel/card softening */
+main section,
+main article,
+main [role='region'] {
+  border-radius: 10px;
+}
+
+/* Improve focus visibility without overriding functionality */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--abe-accent);
+  outline-offset: 2px;
+}
+
+/* Gentle hover affordance for clickable controls */
+button,
+[role='button'] {
+  transition: filter 140ms ease, box-shadow 140ms ease;
+}
+
+button:hover,
+[role='button']:hover {
+  filter: brightness(1.03);
+}
