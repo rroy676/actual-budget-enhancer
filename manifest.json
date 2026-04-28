@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Actual Budget Enhancer",
+  "description": "Safe visual enhancements for self-hosted Actual Budget pages.",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "Actual Budget Enhancer",
+    "default_popup": "extension/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost/*",
+        "http://127.0.0.1/*",
+        "http://192.168.*/*",
+        "http://10.*/*",
+        "https://localhost/*",
+        "https://127.0.0.1/*",
+        "https://192.168.*/*",
+        "https://10.*/*"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "css": [
+        "src/styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "actual-budget-enhancer@local"
+    }
+  }
+}
